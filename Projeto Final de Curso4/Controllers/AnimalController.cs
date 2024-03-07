@@ -27,7 +27,7 @@ namespace Projeto_Final_de_Curso4.Controllers
         {
 
             var tb_animal = db.tb_animal.Include(t => t.tb_cor).Include(t => t.tb_disponibilidade_do_animal).Include(t => t.tb_genero).Include(t => t.tb_tipo_de_animal)
-                .Where(t => t.id_disponibilidade_do_animal == 2);
+                .Where(t => t.id_disponibilidade_do_animal == 2);//Nao adoptado
             return View(tb_animal.ToList());
         }
 

@@ -1,0 +1,90 @@
+﻿@model Projeto_Final_de_Curso4.Models.tb_cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_genero.genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_genero.genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_municipio.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_municipio.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rua_casa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rua_casa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n_BI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_BI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ocupacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ocupacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_de_nascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_de_nascimento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

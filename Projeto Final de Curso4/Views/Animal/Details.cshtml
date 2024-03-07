@@ -1,0 +1,86 @@
+﻿@model Projeto_Final_de_Curso4.Models.tb_animal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes 🐾</h2>
+
+<div>
+    <h4>Animal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            <img src="~/Foto/@Html.DisplayFor(model => model.foto)" width="300" />
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_genero.genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_genero.genero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.raca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_cor.cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_cor.cor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.idade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_animal }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

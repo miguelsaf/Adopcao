@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Projeto_Final_de_Curso4.Models.tb_animal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_genero.genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_cor.cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Foto/@Html.DisplayFor(modelItem => item.foto)" width="200" />
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_tipo_de_animal.tipo_de_animal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_genero.genero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_cor.cor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_animal }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_animal }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_animal })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Projeto_Final_de_Curso4.Models.tb_adopcao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_animal.id_animal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_estado_da_adopcao.estado_da_adopcao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_de_entrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_de_solicitacao_do_animal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.motivo_da_adopcao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_animal.id_animal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_estado_da_adopcao.estado_da_adopcao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_funcionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_de_entrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_de_solicitacao_do_animal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.motivo_da_adopcao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_adopcao }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_adopcao }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_adopcao })
+        </td>
+    </tr>
+}
+
+</table>

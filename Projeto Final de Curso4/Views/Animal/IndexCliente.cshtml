@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Projeto_Final_de_Curso4.Models.tb_animal>
+
+@{
+    ViewBag.Title = "IndexCliente";
+}
+
+<h2>Lista de animais 🐾</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Foto/@Html.DisplayFor(modelItem => item.foto)" width="200" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tb_tipo_de_animal.tipo_de_animal)
+            </td>
+           
+            <td>
+
+                @Html.ActionLink("Detalhes", "Details", new { id = item.id_animal }) |
+
+                @if (Request.IsAuthenticated)
+                {
+
+                    @Html.ActionLink("Adoptar", "CreateCliente", "Adopcao", new { id = item.id_animal }, null)
+                }
+                else
+                {
+
+                    @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })
+
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

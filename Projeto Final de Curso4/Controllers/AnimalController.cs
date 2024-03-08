@@ -143,7 +143,7 @@ namespace Projeto_Final_de_Curso4.Controllers
             }
             return View(tb_animal);
         }
-
+       
         // POST: Animal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

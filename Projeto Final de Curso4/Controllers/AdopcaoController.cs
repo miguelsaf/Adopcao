@@ -15,7 +15,36 @@ namespace Projeto_Final_de_Curso4.Controllers
     {
         private Model1 db = new Model1();
 
-       
+        // GET: Adopcao/Devolver/5
+        public ActionResult Devolver(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tb_adopcao tb_adopcao = db.tb_adopcao.Find(id);
+            if (tb_adopcao == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tb_adopcao);
+        }
+
+        // POST: Adopcao/Devolver/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Devolver(int id)
+        {
+            tb_adopcao tb_adopcao = db.tb_adopcao.Find(id);
+            tb_adopcao.id_estado_da_adopcao = 4; // Devolvido
+            tb_animal tb_animal = db.tb_animal.Find(tb_adopcao.id_animal);
+            tb_animal.id_disponibilidade_do_animal = 2;//Nao Adotado
+            db.Entry(tb_animal).State = EntityState.Modified;
+            db.Entry(tb_adopcao).State = EntityState.Modified;
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Adopcao
         public ActionResult IndexCliente(int? id)
         {
@@ -88,7 +117,7 @@ namespace Projeto_Final_de_Curso4.Controllers
             tb_adopcao.id_animal = tb_animal.id_animal;
             tb_adopcao.data_de_solicitacao_do_animal = DateTime.Now.ToString();
             tb_adopcao.id_cliente = User.Identity.GetUserId();
-            tb_adopcao.id_estado_da_adopcao = 3;
+            tb_adopcao.id_estado_da_adopcao = 3; // pendente
 
 
             return View(tb_adopcao);
@@ -104,7 +133,7 @@ namespace Projeto_Final_de_Curso4.Controllers
             if (ModelState.IsValid)
             {
                 tb_animal tb_animal = db.tb_animal.Find(tb_adopcao.id_animal);
-                tb_animal.id_disponibilidade_do_animal = 3;//Adotado
+                tb_animal.id_disponibilidade_do_animal = 3;//Em adocao
                 db.Entry(tb_animal).State = EntityState.Modified;
                 //db.tb_animal.Add(tb_animal);
                 db.tb_adopcao.Add(tb_adopcao);

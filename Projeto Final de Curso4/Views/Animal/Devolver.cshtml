@@ -1,0 +1,93 @@
+﻿@model Projeto_Final_de_Curso4.Models.tb_animal
+
+@{
+    ViewBag.Title = "Devolver";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza que pretende devolver o animal?</h3>
+<div>
+    <h4>tb_animal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_tipo_de_animal.tipo_de_animal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_genero.genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_genero.genero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_cor.cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_cor.cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peso)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_disponibilidade_do_animal.disponibilidade_do_animal)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Devolver" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -19,7 +19,7 @@ namespace Projeto_Final_de_Curso4.Controllers
         // GET: Adopcao
         public ActionResult IndexCliente(int? id)
         {
-            if (id != null)
+            if (id != null) //Cancelar adopcao
             {
                 tb_adopcao tb_adopcaoRemove = db.tb_adopcao.Find(id);
                 tb_adopcaoRemove.tb_animal.id_disponibilidade_do_animal = 2;
@@ -66,7 +66,7 @@ namespace Projeto_Final_de_Curso4.Controllers
         }
 
         // GET: Adopcao/CreateCliente
-
+        //Solicitar adopcao
         public ActionResult CreateCliente(int? id)
         {
             if (id == null)
@@ -96,8 +96,7 @@ namespace Projeto_Final_de_Curso4.Controllers
 
 
         // POST: Adopcao/CreateCliente
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Solicitar adopcao
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateCliente([Bind(Include = "id_adopcao,id_cliente,id_funcionario,id_animal,id_estado_da_adopcao,data_de_entrega,data_de_solicitacao_do_animal,motivo_da_adopcao")] tb_adopcao tb_adopcao)
@@ -105,8 +104,9 @@ namespace Projeto_Final_de_Curso4.Controllers
             if (ModelState.IsValid)
             {
                 tb_animal tb_animal = db.tb_animal.Find(tb_adopcao.id_animal);
-                tb_animal.id_disponibilidade_do_animal = 1;//Adotado
-                db.tb_animal.Add(tb_animal);
+                tb_animal.id_disponibilidade_do_animal = 3;//Adotado
+                db.Entry(tb_animal).State = EntityState.Modified;
+                //db.tb_animal.Add(tb_animal);
                 db.tb_adopcao.Add(tb_adopcao);
                 db.SaveChanges();
                 return RedirectToAction("IndexCliente");

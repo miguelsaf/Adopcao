@@ -27,7 +27,7 @@ namespace Projeto_Final_de_Curso4.Controllers
         {
 
             var tb_animal = db.tb_animal.Include(t => t.tb_cor).Include(t => t.tb_disponibilidade_do_animal).Include(t => t.tb_genero).Include(t => t.tb_tipo_de_animal)
-                .Where(t => t.id_disponibilidade_do_animal == 2);
+                .Where(t => t.id_disponibilidade_do_animal == 2 );
             return View(tb_animal.ToList());
         }
 
@@ -71,7 +71,7 @@ namespace Projeto_Final_de_Curso4.Controllers
                     String path = Server.MapPath("~/Foto/" + ImageFile.FileName);
                     ImageFile.SaveAs(path);
                 }
-
+                tb_animal.id_disponibilidade_do_animal = 2; //Nao adoptado
                 db.tb_animal.Add(tb_animal);
                 db.SaveChanges();
                 return RedirectToAction("Index");

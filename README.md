@@ -1,2 +1,2 @@
 # Adopcao
-Adopção de gatos e cães
+Street Dogs and Cats adoption App

@@ -1,2 +1,2 @@
 # Adopcao
-Street Dogs and Cats adoption App
+Street Dogs and Cats Adoption App
